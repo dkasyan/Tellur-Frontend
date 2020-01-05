@@ -7,10 +7,11 @@ import Header from "../components/Header"
 const TemplatePage = (
     <>
         <CssBaseline/>
-        <Container component="main" maxWidth="lg">
+        <Container component="main" maxWidth="xl">
             <Header/>
-            <Typography>dupa</Typography>
-
+            <Paper>
+                {routes}
+            </Paper>
             {/*<Typography variant='h1'>*/}
             {/*    Main Page*/}
             {/*</Typography>*/}
