@@ -22,6 +22,9 @@ const Second = () => {
             <Button className={classes.button} type="submit" variant="contained" color="primary" onClick={handleClick}>
                 Add
             </Button>
+            <Button className={classes.button} type="submit" variant="contained" color="primary" onClick={handleClick}>
+                Add
+            </Button>
             <Button type="submit" variant="contained" color="secondary" onClick={handleReset}>
                 Reset
             </Button>
@@ -29,6 +32,7 @@ const Second = () => {
         </>
     )
 }
+
 
 const moduleProps: ModuleProps = {
     routeProps: {

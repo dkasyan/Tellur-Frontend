@@ -1,12 +1,12 @@
 import React from 'react'
 import {Route, Switch} from 'react-router'
-import modules from '../modules';
+import subsites from '../subsites';
 import NoMatch from '../components/NoMatch'
 import {Paper} from '@material-ui/core'
 
 const routes = (
         <Switch>
-            {modules.map((module) => (
+            {subsites.map((module) => (
                 <Route {...module.routeProps} key={module.name} />
             ))}
             <Route path={'/'} component={Paper}/>
