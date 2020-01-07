@@ -3,6 +3,7 @@ import routes from './routes'
 import {Container, CssBaseline, Paper, Typography, AppBar, Icon} from '@material-ui/core'
 import MainMenu from '../components/MainMenu'
 import Header from "../components/Header"
+import MainFooter from "../components/MainFooter"
 
 const TemplatePage = (
     <>
@@ -21,6 +22,7 @@ const TemplatePage = (
             {/*    {routes}*/}
             {/*</Paper>*/}
         </Container>
+        <MainFooter/>
     </>
 )
 
