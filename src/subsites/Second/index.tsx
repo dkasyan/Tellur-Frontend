@@ -1,4 +1,4 @@
-import React, {MouseEvent} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import {Button, CircularProgress, makeStyles} from '@material-ui/core'
 import ModuleProps from '../../types/ModuleProps';
 
@@ -8,20 +8,17 @@ const useStyles = makeStyles(theme => ({
 
 const Second = () => {
     const classes = useStyles()
-    const [value, setValue] = React.useState<number>(0);
+    const [value, setValue] = useState<number>(0)
 
     const handleClick = (event: MouseEvent) => {
-        setValue(value + 10);
+        setValue(value + 10)
     };
 
     const handleReset = () => {
-        setValue(0);
+        setValue(0)
     };
     return (
         <>
-            <Button className={classes.button} type="submit" variant="contained" color="primary" onClick={handleClick}>
-                Add
-            </Button>
             <Button className={classes.button} type="submit" variant="contained" color="primary" onClick={handleClick}>
                 Add
             </Button>
