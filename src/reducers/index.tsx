@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux'
 import {History} from "history";
 import {connectRouter, RouterState} from 'connected-react-router'
-import modules from '../modules'
+import modules from '../subsites'
 
 const staticReducers = {}
 
