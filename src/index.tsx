@@ -1,21 +1,21 @@
-import * as serviceWorker from './serviceWorker';
-import {AppContainer} from 'react-hot-loader'
-import {Provider} from 'react-redux'
+import * as serviceWorker from './serviceWorker'
+import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import configureStore, {history} from './configureStore'
+import { Provider } from 'mobx-react'
+import { createHistory, createStores } from './state'
 
-const store = configureStore()
+// const stores = configureStore()
 
 const render = () => {
     ReactDOM.render(
         <AppContainer>
-            <Provider store={store}>
-                <App history={history} />
+            <Provider {...createStores()}>
+                <App history={createHistory()} />
             </Provider>
         </AppContainer>,
-        document.getElementById('root')
+        document.getElementById('root'),
     )
 }
 

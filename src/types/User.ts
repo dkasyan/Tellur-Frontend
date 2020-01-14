@@ -1,5 +1,5 @@
 interface User {
-    name: string,
+    name: string
 }
 
 export default User
