@@ -23,7 +23,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     //    "no-unexpected-multiline": true,
-    "noEmit": true
+    "noEmit": true,
+    "experimentalDecorators": true
   },
   "include": [
     "src"
