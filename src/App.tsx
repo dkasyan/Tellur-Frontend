@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {History} from 'history'
-import {ConnectedRouter} from "connected-react-router";
 import template from './TemplatePage'
 import {useState, useEffect} from 'react';
 import {createMuiTheme, MuiThemeProvider, Button} from '@material-ui/core';
 import {ThemeOptions} from '@material-ui/core/styles/createMuiTheme';
+import { Router } from 'react-router'
 
 interface AppProps {
     history: History
@@ -23,11 +23,11 @@ const App = ({history}: AppProps) => {
     const muiTheme = createMuiTheme(theme)
 
     return (
-        <ConnectedRouter history={history}>
+        <Router history={history}>
             <MuiThemeProvider theme={muiTheme}>
             {template}
             </MuiThemeProvider>
-        </ConnectedRouter>
+        </Router>
 
     )
 }
