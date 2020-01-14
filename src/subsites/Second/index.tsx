@@ -1,6 +1,8 @@
 import React, {MouseEvent, useState} from 'react';
 import {Button, CircularProgress, makeStyles} from '@material-ui/core'
 import ModuleProps from '../../types/ModuleProps';
+import { FirstStore } from '../First/store'
+import { SecondStore } from './store'
 
 const useStyles = makeStyles(theme => ({
     button: {}
@@ -40,6 +42,8 @@ const moduleProps: ModuleProps = {
     link: '/second',
     reducers: {},
     stateTypes: {},
+    storeKey: 'second',
+    store: new SecondStore(),
 };
 
 export default moduleProps;

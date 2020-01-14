@@ -1,7 +1,8 @@
 import React from 'react';
-import {Button, makeStyles} from '@material-ui/core'
+import { Button, makeStyles } from '@material-ui/core'
 import ModuleProps from '../../types/ModuleProps';
 import counterReducer from './reducers'
+import { FirstStore } from './store'
 
 const useStyles = makeStyles(theme => ({
     button: {}
@@ -30,6 +31,8 @@ const moduleProps: ModuleProps = {
     link: '/first',
     reducers: {count: counterReducer},
     stateTypes: {},
+    storeKey: 'first',
+    store: new FirstStore(),
 };
 
 export default moduleProps;
