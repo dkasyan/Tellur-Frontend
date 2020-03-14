@@ -1,17 +1,15 @@
-import {Button} from "@material-ui/core"
-import React from "react"
+import { Button } from '@material-ui/core'
+import React from 'react'
+import { useStores } from '../App'
+import { useTranslation } from 'react-i18next'
 
-const ThemeToggle = () => {
-
-    const handleClick = () => {
-        // getTheme(true)
-    }
+export const ThemeToggle = () => {
+    const { ThemeStore } = useStores()
+    const [t] = useTranslation()
 
     return (
-        <Button onClick={handleClick}>
-            toggle
+        <Button color={'primary'} onClick={ThemeStore.toggleTheme()}>
+            {t('toggleThemeButton')}
         </Button>
     )
 }
-
-export default ThemeToggle
