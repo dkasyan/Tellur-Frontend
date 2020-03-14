@@ -3,17 +3,11 @@ import { AppContainer } from 'react-hot-loader'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
-import { Provider } from 'mobx-react'
-import { createHistory, createStores } from './state'
-
-// const stores = configureStore()
 
 const render = () => {
     ReactDOM.render(
         <AppContainer>
-            <Provider {...createStores()}>
-                <App history={createHistory()} />
-            </Provider>
+            <App/>
         </AppContainer>,
         document.getElementById('root'),
     )
