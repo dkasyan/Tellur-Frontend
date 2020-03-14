@@ -1,4 +1,4 @@
-import modules from '../modules'
+import modules from '../subsites'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import { createBrowserHistory } from 'history'
 

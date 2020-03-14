@@ -1,4 +1,4 @@
-import {AppBar, Typography, Icon, Toolbar, makeStyles} from "@material-ui/core"
+import {AppBar, Icon, Toolbar, makeStyles} from "@material-ui/core"
 import React from "react"
 import MainMenu from "./MainMenu"
 import SocialMedia from "./SocialMedia"
