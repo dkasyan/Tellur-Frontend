@@ -42,10 +42,7 @@ moduleInfo.exports = {
 module.exports = {
     mode: 'production',
     devtool: 'eval-source-map',
-    entry: [
-        'react-hot-loader/patch',
-        path.resolve('src/index.tsx'),
-    ],
+    entry: ['react-hot-loader/patch', path.resolve('src/index.tsx')],
     resolve: {
         extensions: ['.js', '.ts', '.tsx'],
     },
@@ -62,16 +59,30 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?/,
-                loader: 'ts-loader'
+                loader: 'ts-loader',
             },
             {
-                enforce: "pre",
+                enforce: 'pre',
                 test: /\.js$/,
-                loader: "source-map-loader"
-            }
+                loader: 'source-map-loader',
+            },
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader!sass-loader',
+            },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/',
+                        },
+                    },
+                ],
+            },
         ],
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-    ],
+    plugins: [new webpack.HotModuleReplacementPlugin()],
 }
