@@ -1,34 +1,39 @@
-import * as React from 'react';
-import {History} from 'history'
+import * as React from 'react'
+import { History } from 'history'
 import template from './TemplatePage'
-import {useState, useEffect} from 'react';
-import {createMuiTheme, MuiThemeProvider, Button} from '@material-ui/core';
-import {ThemeOptions} from '@material-ui/core/styles/createMuiTheme';
+import { createMuiTheme, MuiThemeProvider, useMediaQuery } from '@material-ui/core'
 import { Router } from 'react-router'
+import { useObserver } from 'mobx-react-lite'
+import { browserHistory, storeContext } from './state'
+import { useMemo } from 'react'
 
 interface AppProps {
     history: History
 }
 
+export const useStores = () => {
+    const store = React.useContext(storeContext)
+    if (!store) {
+        // this is especially useful in TypeScript so you don't need to be checking for null all the time
+        throw new Error('useStore must be used within a StoreProvider.')
+    }
+    return store
+}
 
-const App = ({history}: AppProps) => {
-    const [theme, setTheme] = useState<ThemeOptions>({palette: {type: "dark"}})
+const App = () => {
+    const { ThemeStore } = useStores()
+    const darkTheme = useMediaQuery('(prefers-color-scheme: dark)')
 
-    const toggleTheme = () => {
-        let newPaletteType: "light" | "dark" = theme.palette && theme.palette.type === "light" ? "dark" : "light"
-        setTheme({palette: {type: newPaletteType}})
-        // return theme
-    } //TODO Big todo Uzyc reduxa do zmiany motywu
+    useMemo(() => darkTheme && ThemeStore.setDarkTheme(), [darkTheme])
 
-    const muiTheme = createMuiTheme(theme)
+    const muiTheme = useObserver(() => {
+        return createMuiTheme(ThemeStore.getTheme())
+    })
 
     return (
-        <Router history={history}>
-            <MuiThemeProvider theme={muiTheme}>
-            {template}
-            </MuiThemeProvider>
+        <Router history={browserHistory}>
+            <MuiThemeProvider theme={muiTheme}>{template}</MuiThemeProvider>
         </Router>
-
     )
 }
 
