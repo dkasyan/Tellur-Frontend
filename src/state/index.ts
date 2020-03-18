@@ -1,11 +1,9 @@
 import modules from '../subsites'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import { createBrowserHistory } from 'history'
-
-const browserHistory = createBrowserHistory()
-
-const routingStore = new RouterStore()
-// const subSitesStores = modules.map(module => ({ [module.name]: module.store }))
+import { ThemeStore } from './ThemeStore'
+import * as React from 'react'
+import { LanguageStore } from './LanguageStore'
 
 const subSitesStores = modules.reduce(
     (accumulator, module) => ({
@@ -14,9 +12,16 @@ const subSitesStores = modules.reduce(
     }),
     {},
 )
+const configStores = {
+    ThemeStore,
+    LanguageStore,
+}
 
-export const createStores = () => ({
-    store: {},
+const routingStore = new RouterStore()
+export const browserHistory = syncHistoryWithStore(createBrowserHistory(), routingStore)
+
+const store ={
+    config: {},
     app: {
         title: 'MobX Router Example App',
         user: null,
@@ -24,6 +29,7 @@ export const createStores = () => ({
     //here's how we can plug the routerStore into our stores
     routing: routingStore,
     ...subSitesStores,
-})
+    ...configStores,
+}
 
-export const createHistory = () => syncHistoryWithStore(browserHistory, routingStore)
+export const storeContext = React.createContext<any | null>(store)
