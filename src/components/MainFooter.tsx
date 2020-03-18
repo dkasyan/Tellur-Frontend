@@ -1,6 +1,4 @@
 import {
-    BottomNavigation,
-    BottomNavigationAction,
     Container,
     Grid,
     List,
@@ -10,42 +8,39 @@ import {
     FormControl,
     InputLabel,
     MenuItem,
-    Select
-} from "@material-ui/core"
-import React from "react"
-import ThemeToggle from "./ThemeToggle"
+    Select, Typography,
+} from '@material-ui/core'
+import React from 'react'
+import { ThemeToggle } from './ThemeToggle'
 
 const useStyles = makeStyles(theme => ({
     footer: {
-        position: "absolute",
-        bottom: 0,
-        width: "100%",
         backgroundColor: theme.palette.text.primary, //TODO zmienic kolor na czarny
-        color: theme.palette.background.default
-    }
+        color: theme.palette.background.default,
+    },
 }))
 
 const MainFooter = () => {
     const classes = useStyles()
     return (
         <footer className={classes.footer}>
-            <Container maxWidth="xl">
-                <Grid container
-                      direction="row"
-
-                    //alignItems="center"
-                >
+            <Container maxWidth="lg">
+                <Grid container direction="row">
                     <Grid item md={4}>
+                        <Typography variant='h4'>
+                            Hobby
+                        </Typography>
                         <List>
                             <ListItem>
-                                <ListItemText primary="TextStopki"/>
+                                <ListItemText secondary="TextStopki" />
                             </ListItem>
+
                         </List>
                     </Grid>
                     <Grid item md={4}>
                         <List>
                             <ListItem>
-                                <ListItemText primary="TextStopki2"/>
+                                <ListItemText primary="TextStopki2" />
                             </ListItem>
                         </List>
                     </Grid>
@@ -57,13 +52,14 @@ const MainFooter = () => {
                                 <MenuItem value="20">English</MenuItem>
                             </Select>
                         </FormControl>
-                        <ThemeToggle/>
+                        <FormControl>
+                            <ThemeToggle />
+                        </FormControl>
                     </Grid>
                 </Grid>
             </Container>
         </footer>
     )
 }
-
 
 export default MainFooter
