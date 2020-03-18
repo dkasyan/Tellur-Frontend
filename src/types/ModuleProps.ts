@@ -4,7 +4,6 @@ type ModuleProps = {
     routeProps: RouteProps
     name: string
     link: string
-    reducers: object
     stateTypes: any
     storeKey: string
     store: any
