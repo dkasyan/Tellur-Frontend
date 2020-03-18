@@ -4,8 +4,8 @@ import template from './TemplatePage'
 import { createMuiTheme, MuiThemeProvider, useMediaQuery } from '@material-ui/core'
 import { Router } from 'react-router'
 import { useObserver } from 'mobx-react-lite'
-import { browserHistory, storeContext } from './state'
 import { useMemo } from 'react'
+import { browserHistory, storeContext } from './state'
 
 interface AppProps {
     history: History
