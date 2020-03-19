@@ -40,7 +40,6 @@ const moduleProps: ModuleProps = {
     },
     name: 'Second',
     link: '/second',
-    reducers: {},
     stateTypes: {},
     storeKey: 'second',
     store: new SecondStore(),
